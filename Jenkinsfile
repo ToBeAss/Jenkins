@@ -24,6 +24,7 @@ pipeline {
             post {
                 always {
                     echo "Sending notification email to ${EMAIL}..."
+                    touch logs.txt
                 }
                 success {
                     echo "Status: SUCCESS"
