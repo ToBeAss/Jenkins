@@ -25,6 +25,7 @@ pipeline {
                 always {
                     echo "Sending notification email to ${EMAIL}..."
                     sh "touch logs.txt"
+                    sh "mail -s 'Unit and Integration Tests' -A logs.txt ${EMAIL}"
                 }
                 success {
                     echo "Status: SUCCESS"
