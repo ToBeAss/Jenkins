@@ -25,7 +25,7 @@ pipeline {
                 always {
                     echo "Sending notification email to ${EMAIL}..."
                     sh "touch logs.txt"
-                    sh "mail -s 'Unit and Integration Tests' -A logs.txt ${EMAIL}"
+                    echo "Attaching logs.txt..."
                 }
                 success {
                     echo "Status: SUCCESS"
@@ -49,6 +49,8 @@ pipeline {
             post {
                 always {
                     echo "Sending notification email to ${EMAIL}..."
+                    sh "touch logs.txt"
+                    echo "Attaching logs.txt..."
                 }
                 success {
                     echo "Status: SUCCESS"
@@ -72,6 +74,8 @@ pipeline {
             post {
                 always {
                     echo "Sending notification email to ${EMAIL}..."
+                    sh "touch logs.txt"
+                    echo "Attaching logs.txt..."
                 }
                 success {
                     echo "Status: SUCCESS"
