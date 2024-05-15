@@ -29,13 +29,13 @@ pipeline {
                 }
                 success {
                     echo "Status: SUCCESS"
-                    mail to: ${EMAIL},
+                    mail to: "${EMAIL}",
                     subject: "Unit and Integration Test Status",
                     body: "Tests were successful!"
                 }
                 failure {
                     echo "Status: FAILURE"
-                    mail to: ${EMAIL},
+                    mail to: "${EMAIL}",
                     subject: "Unit and Integration Test Status",
                     body: "Tests failed!"
                 }
@@ -60,13 +60,13 @@ pipeline {
                 }
                 success {
                     echo "Status: SUCCESS"
-                    mail to: ${EMAIL},
+                    mail to: "${EMAIL}",
                     subject: "Security Scan Status",
                     body: "Scans were successful!"
                 }
                 failure {
                     echo "Status: FAILURE"
-                    mail to: ${EMAIL},
+                    mail to: "${EMAIL}",
                     subject: "Security Scan Status",
                     body: "Scans failed!"
                 }
@@ -91,13 +91,13 @@ pipeline {
                 }
                 success {
                     echo "Status: SUCCESS"
-                    mail to: ${EMAIL},
+                    mail to: "${EMAIL}",
                     subject: "Integration Test Status",
                     body: "Tests were successful!"
                 }
                 failure {
                     echo "Status: FAILURE"
-                    mail to: ${EMAIL},
+                    mail to: "${EMAIL}",
                     subject: "Integration Test Status",
                     body: "Tests failed!"
                 }
