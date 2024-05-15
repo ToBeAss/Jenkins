@@ -29,15 +29,17 @@ pipeline {
                 }
                 success {
                     echo "Status: SUCCESS"
-                    mail to: "${EMAIL}",
+                    emailext attachLog: true, attachmentsPattern: "logs.txt",
+                    body: "Tests were successful!",
                     subject: "Unit and Integration Test Status",
-                    body: "Tests were successful!"
+                    to: "${EMAIL}"
                 }
                 failure {
                     echo "Status: FAILURE"
-                    mail to: "${EMAIL}",
+                    emailext attachLog: true, attachmentsPattern: "logs.txt",
+                    body: "Tests failed!",
                     subject: "Unit and Integration Test Status",
-                    body: "Tests failed!"
+                    to: "${EMAIL}"
                 }
             }
         }
