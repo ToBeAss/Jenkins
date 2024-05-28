@@ -29,17 +29,23 @@ pipeline {
                 }
                 success {
                     echo "Status: SUCCESS"
-                    emailext subject: "Unit and Integration Test Status",
-                    body: "Tests were successful!",
-                    attachmentsPattern: "**/logs.txt",
-                    to: "mollandtobias@gmail.com"
+                    emailext (
+                        subject: "Unit and Integration Test Status",
+                        body: "Tests were successful!",
+                        to: "mollandtobias@gmail.com",
+                        from: "nobody@nowhere",
+                        attachmentsPattern: "**/logs.txt"
+                    )
                 }
                 failure {
                     echo "Status: FAILURE"
-                    emailext subject: "Unit and Integration Test Status",
-                    body: "Tests failed!",
-                    attachmentsPattern: "**/logs.txt",
-                    to: "mollandtobias@gmail.com"
+                    emailext (
+                        subject: "Unit and Integration Test Status",
+                        body: "Tests failed!",
+                        to: "mollandtobias@gmail.com",
+                        from: "nobody@nowhere",
+                        attachmentsPattern: "**/logs.txt"
+                    )
                 }
             }
         }
