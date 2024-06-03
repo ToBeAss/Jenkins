@@ -124,6 +124,7 @@ pipeline {
                         from: "nobody@nowhere",
                         attachLog: true
                     )
+                }
             }
         }
         stage('Deploy to Production') {
