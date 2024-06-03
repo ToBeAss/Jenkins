@@ -68,15 +68,23 @@ pipeline {
                 }
                 success {
                     echo "Status: SUCCESS"
-                    mail to: "${EMAIL}",
-                    subject: "Security Scan Status",
-                    body: "Scans were successful!"
+                    emailext (
+                        subject: "Security Scan Status",
+                        body: "Scans were successful!",
+                        to: "${EMAIL}",
+                        from: "nobody@nowhere",
+                        attachLog: true
+                    )
                 }
                 failure {
                     echo "Status: FAILURE"
-                    mail to: "${EMAIL}",
-                    subject: "Security Scan Status",
-                    body: "Scans failed!"
+                    emailext (
+                        subject: "Security Scan Status",
+                        body: "Scans failed!",
+                        to: "${EMAIL}",
+                        from: "nobody@nowhere",
+                        attachLog: true
+                    )
                 }
             }
         }
@@ -99,16 +107,23 @@ pipeline {
                 }
                 success {
                     echo "Status: SUCCESS"
-                    mail to: "${EMAIL}",
-                    subject: "Integration Test Status",
-                    body: "Tests were successful!"
+                    emailext (
+                        subject: "Integration Test Status",
+                        body: "Tests were successful!",
+                        to: "${EMAIL}",
+                        from: "nobody@nowhere",
+                        attachLog: true
+                    )
                 }
                 failure {
                     echo "Status: FAILURE"
-                    mail to: "${EMAIL}",
-                    subject: "Integration Test Status",
-                    body: "Tests failed!"
-                }
+                    emailext (
+                        subject: "Integration Test Status",
+                        body: "Tests failed!",
+                        to: "${EMAIL}",
+                        from: "nobody@nowhere",
+                        attachLog: true
+                    )
             }
         }
         stage('Deploy to Production') {
