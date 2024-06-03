@@ -32,9 +32,9 @@ pipeline {
                     emailext (
                         subject: "Unit and Integration Test Status",
                         body: "Tests were successful!",
-                        to: "mollandtobias@gmail.com",
+                        to: "${EMAIL}",
                         from: "nobody@nowhere",
-                        attachmentsPattern: "**/logs.txt"
+                        attachLog: true
                     )
                 }
                 failure {
@@ -42,9 +42,9 @@ pipeline {
                     emailext (
                         subject: "Unit and Integration Test Status",
                         body: "Tests failed!",
-                        to: "mollandtobias@gmail.com",
+                        to: "${EMAIL}",
                         from: "nobody@nowhere",
-                        attachmentsPattern: "**/logs.txt"
+                        attachLog: true
                     )
                 }
             }
